@@ -1,0 +1,51 @@
+{
+  "name": "webviewer-mendix",
+  "widgetName": "WebViewer",
+  "version": "2.1.2",
+  "description": "My widget description",
+  "copyright": "2024 Apryse",
+  "author": "Andrey Safonov",
+  "config": {
+    "projectPath": "../..//",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": "3000"
+  },
+  "packagePath": "pdftron",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server --open",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "license": "",
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^10.18.0",
+    "@types/big.js": "^6.2.2",
+    "@types/classnames": "^2.3.4",
+    "@types/lodash": "^4.17.15"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.2.0",
+    "classnames": "^2.5.1",
+    "lodash": "^4.17.21"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.7",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "@types/react-native": "0.72.7"
+  },
+  "resolutions": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.7",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "@types/react-native": "0.72.7"
+  }
+}
