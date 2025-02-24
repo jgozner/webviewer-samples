@@ -57,7 +57,7 @@
     "fs-extra": "^11.3.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.2.0",
+    "@pdftron/webviewer": "^11.3.0",
     "electron-squirrel-startup": "^1.0.1"
   }
 }
