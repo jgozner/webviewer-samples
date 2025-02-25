@@ -11,7 +11,7 @@ export default {
   },
   mounted () {
     import('@pdftron/webviewer').then(() => {
-      WebViewer({
+      WebViewer.Iframe({
         path: '../webviewer',
         initialDoc: this.url, // replace with your own PDF file
         licenseKey: 'your_license_key' // sign up to get a free trial key at https://dev.apryse.com
