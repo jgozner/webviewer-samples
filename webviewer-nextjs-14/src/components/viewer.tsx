@@ -14,7 +14,7 @@ export default function Viewer() {
       const WebViewer = module.default;
       WebViewer(
         {
-          path: '/webviewer/lib',
+          path: '/lib/webviewer',
           initialDoc: '/files/webviewerdemodoc.pdf',
           licenseKey: 'your_license_key'  // sign up to get a free trial key at https://dev.apryse.com
         },
