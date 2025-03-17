@@ -11,7 +11,6 @@
       "webviewer-audio",
       "webviewer-barcode",
       "webviewer-BIM",
-      "webviewer-winforms",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
       "webviewer-cors/webviewer-app",
@@ -39,6 +38,7 @@
       "webviewer-typescript",
       "webviewer-user-bookmarks-nodejs",
       "webviewer-video",
-      "webviewer-vue"
+      "webviewer-vue",
+      "webviewer-winforms"
     ]
   }
