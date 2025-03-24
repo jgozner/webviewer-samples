@@ -5,8 +5,8 @@ const saveFileBtn = document.getElementById("save");
 
 WebViewer(
   {
-    path: "../public/lib",
-    initialDoc: "../public/files/webviewer-demo-annotated.pdf",
+    path: "../lib/webviewer",
+    initialDoc: "../files/webviewer-demo-annotated.pdf",
   },
   viewerElement
 ).then((instance) => {
