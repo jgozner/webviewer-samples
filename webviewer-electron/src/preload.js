@@ -3,6 +3,7 @@
 
 const { contextBridge, ipcRenderer } = require('electron/renderer')
 
+// Expose open and save file dialogs to the renderer process
 contextBridge.exposeInMainWorld('electronAPI', {
   openFile: () => ipcRenderer.invoke('dialog:openFile'),
   saveFile: (arr) => ipcRenderer.invoke('dialog:saveFile', arr)

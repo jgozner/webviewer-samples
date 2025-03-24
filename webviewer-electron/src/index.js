@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
 
+// Open file dialog handler
 async function handleFileOpen() {
   const { canceled, filePaths } = await dialog.showOpenDialog({
     properties: ["openFile", "multiSelections"],
@@ -15,6 +16,7 @@ async function handleFileOpen() {
   }
 }
 
+// Save document file dialog handler
 async function handleFileSave(event, arr) {
   const { canceled, filePaths } = await dialog.showOpenDialog({
     title: "Select where you want to save the PDF",
@@ -66,8 +68,12 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+
+  // Add event listeners to handle file open and save
   ipcMain.handle('dialog:openFile', handleFileOpen);
   ipcMain.handle('dialog:saveFile', handleFileSave);
+
+  // Create the main window
   createWindow();
 
   // On OS X it's common to re-create a window in the app when the
