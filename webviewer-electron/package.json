@@ -12,7 +12,7 @@
     "postinstall": "node tools/copy-webviewer-files.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Apryse",
   "license": "ISC",
   "dependencies": {
     "@pdftron/webviewer": "^11.3.0",
