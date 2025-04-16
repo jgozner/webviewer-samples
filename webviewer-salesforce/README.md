@@ -13,7 +13,6 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 ## Requirements
 
-* [Apryse WebViewer](https://docs.apryse.com/web/guides/download) (Download `WebViewer.zip`)
 * [Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
 * [Node and NPM](https://nodejs.org/en/)
 
@@ -30,103 +29,112 @@ git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-salesforce
 ```
 
-3. [Needed once] - If you already have the Static Resources and do not need to upgrade/downgrade to a different version, you can skip to step 5. Otherwise, extract `WebViewer.zip`, `cd` to the directory the contents were extracted
+**NOTE**: Steps 3 and 4 are needed once - If static resources are already existing under `./force-app/main/default/staticresources` and do not need to upgrade/downgrade to a different version, skip to step 5.
+
+3. Install the Apryse WebViewer SDK
+```
+npm install
+```
+
+`npm install` will download Apryse WebViewer SDK to `webviewer-salesforce/webviewer`.
+
+4. Prepare static files. Use the `optimize` script to generate the Static Resources (.zip and .xml files).
+```
+npm run optimize
+```
+
+Answer the following questions:
 
 ```
-$ npm run optimize
-
 Optimize: Do you want us to backup your files before optimizing? [y/n]:  y
-
+                                                                                                                                                                                                                   
 Optimize: Will you be using WebViewer Server? See https://docs.apryse.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
 
 Optimize: Will you be converting all your documents to XOD? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info. [y/n]:  n
-
+                                                                                                                                                                                                                   
 Optimize: Do you need client side office support (docx, pptx, xlsx)? [y/n]:  y
-
+                                                                                                                                                                                                                   
 Optimize: Do you need client side office support for legacy office files (doc, ppt, xls)? [y/n]:  y
-
+                                                                                                                                                                                                                   
 Optimize: Do you need the full PDF API? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
-
+                                                                                                                                                                                                                   
 Optimize: Do you want to use the production version of PDFNet.js? The production version does not have type checking and console messages, but is much smaller than the development version. [y/n]:  n
-
+                                                                                                                                                                                                                   
 Optimize: Do you need to use the content editing feature? (This is for editing content on the page in the viewer) [y/n]:  y
 
 Optimize: Do you need to use the office editing feature? (This is for editing docx files in the viewer) [y/n]:  y
-
+                                                                                                                                                                                                                   
+Optimize: Do you need to use the spreadsheet editing feature? (This is for editing xlsx files in the viewer) [y/n]:  n
+                                                                                                                                                                                                                   
 Optimize: Do you need to deploy to Salesforce? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
 
-Optimize: Would you like to use the web component version of WebViewer (instead of the iframe)? [y/n]:  n
+==== FILES & FOLDERS TO DELETE ====
+
+C:\Help\Apryse\GitHub\webviewer-samples\webviewer-salesforce\webviewer\lib\core\pdf\lean
+C:\Help\Apryse\GitHub\webviewer-samples\webviewer-salesforce\webviewer\lib\core\spreadsheetEditor
+C:\Help\Apryse\GitHub\webviewer-samples\webviewer-salesforce\webviewer\lib\ui\webviewer-ui.min.js.map
+C:\Help\Apryse\GitHub\webviewer-samples\webviewer-salesforce\webviewer\lib\ui\style.css.map
+C:\Help\Apryse\GitHub\webviewer-samples\webviewer-salesforce\webviewer\lib\ui\index-wc.html
+
+===================================
+                                                                                                                                                                                                                   
+Optimize: The above files will be permanently deleted. Is this okay? (A backup will be created in './lib-backup') [y|n]:  y
 ```
 
-This optimization process produces zip files of size 5 MB or less, which enables
-you to safely upload to the Salesforce platform.
+This optimization process produces zip files of size 5 MB or less, which enables you to safely upload to the Salesforce platform.
 
-Note that in certain circumstances, you may need the full PDF API. For more
-details on when you may need to enable it, see:
+Note that in certain circumstances, you may need the full PDF API. For more details on when you may need to enable it, see:
 
-https://www.docs.apryse.com.com/documentation/web/guides/full-api-overview/
+https://docs.apryse.com/web/guides/full-api-overview
 
-4. [Needed once] - Copy all the zip files from `webviewer-salesforce` folder, which were generated after running above npm optimization script, into `force-app/main/default/staticresources`.
+The static resources are generated after running above optimization, into `./force-app/main/default/staticresources`.
 
-![Zip files][zip_files]
+![static resources](misc/static-resources.png "Static Resources")
 
 Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where the contents of each `.xml` file are identical to the other `.xml` files.
 
-![XML files][xml_files]
-
 5. If you have a paid license key, you can remove the watermark from rendered
-documents by adding the key to the `PDFTron.WebViewer` constructor here
-[`./force-app/main/default/lwc/webViewer/webViewer.js`](./force-app/main/default/lwc/webViewer/webViewer.js#L53).
+documents by adding the `licenseKey` property value to the `WebViewer` constructor here
+[`./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js`](./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js#L63).
 
-6. If you haven’t already done so, authenticate with your hub org and provide it with an alias (**DevHub** in the command below):
 ```
-sfdx force:auth:web:login --setdefaultdevhubusername --setalias DevHub
+licenseKey: 'YOUR_LICENSE_KEY'
+```
+
+6. If you have not already done so, authenticate with your hub org and provide it with an alias (**DevHub** in the command below):
+```
+sf org login web --set-default-dev-hub --alias DevHub
 ```
 
 7. Enter your Dev Hub org credentials in the browser that opens. After you log in successfully, you can close the browser. Create a scratch org using the `config/project-scratch-def.json` file, set the **username** as your default, and assign it an alias.
 ```
-sfdx force:org:create --setdefaultusername -f config/project-scratch-def.json --setalias my-scratch-org
+sf org create scratch --definition-file config/project-scratch-def.json --set-default --alias my-scratch-org
 ```
 
 8. Push the app to your scratch org:
 ```
-sfdx force:source:push -f
+sf project deploy start --source-dir force-app
 ```
 
 9. Open the scratch org:
 ```
-sfdx force:org:open
+sf org open
 ```
 
-10. Click the app launcher icon ![App Launcher icon][app_launcher] to open the App Launcher, then click PDFTron.
+10. Click the app launcher icon ![App Launcher icon](misc/app_launcher.png "App Launcher") to open the App Launcher, then click Apryse.
 
-![PDFTron app][pdftron_app]
+![Apryse App](misc/Apryse-App.png "Apryse App")
 
-![WebViewer][webviewer]
+![WebViewer](misc/WebViewer.png "WebViewer")
 
-Note: Include the following to your profile `.xml` for application and tab access
-```xml
-    <applicationVisibilities>
-        <application>PDFTron</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <tabVisibilities>
-        <tab>File_Browser</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>WebViewer</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-```
+The tabs in the Salesforce app registration can be renamed by changing the admin XML file found in `./force-app/main/default/profiles/Admin.profile-meta.xml`. By default the "WebViewer" and "File Browser" tabs are created.
 
 ## Implementation Details for Developers
 
-## Communicating with CoreControls from Lightning Web Component
-On the Salesforce platform, Lightning Web Component have limits accessing to WebViewer’s `iframe` due to [LockerService](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html) requirements. Lightning Component can use limited communication mechanism between components using [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage). You can find more information about LockerService [here](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html).
+### Communicating with CoreControls from Lightning Web Component
+On the Salesforce platform, Lightning Web Component have limits accessing to WebViewer's `iframe` due to [LockerService](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html) requirements. Lightning Component can use limited communication mechanism between components using [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage). You can find more information about LockerService [here](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html).
 
-Here is implementation of the `postMessage` mechanism used in our sample github project and you can use this similar approach to communicate with the `iframe`’s `contentWindow`.
+Here is implementation of the `postMessage` mechanism used in our sample github project and you can use this similar approach to communicate with the `iframe`'s `contentWindow`.
 
 Inside `config.js` file, use following:
 ```js
@@ -179,10 +187,3 @@ export default class WebViewer extends LightningElement {
   }
 }
 ```
-
-[zip_files]: misc/zip-files.png "Zip files"
-[xml_files]: misc/xml-files.png "XML files"
-[pdftron_app]: misc/pdftron_app.png "PDFTron app"
-[webviewer]: misc/webviewer.png "WebViewer"
-[app_launcher]: misc/app_launcher.png "App Launcher"
-
