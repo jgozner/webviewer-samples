@@ -9,7 +9,7 @@ const App = () => {
     WebViewer(
       {
         path: '/lib/webviewer',
-        initialDoc: '/files/PDFTRON_about.pdf',
+        initialDoc: '/files/WebviewerDemoDoc.pdf',
         licenseKey: 'your_license_key',  // sign up to get a free trial key at https://dev.apryse.com
       },
       viewer.current,
