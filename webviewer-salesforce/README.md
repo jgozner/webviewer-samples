@@ -123,9 +123,9 @@ sf org open
 
 10. Click the app launcher icon ![App Launcher icon](misc/app_launcher.png "App Launcher") to open the App Launcher, then click Apryse.
 
-![Apryse App](misc/Apryse-App.png "Apryse App")
+![Apryse App](misc/Apryse-app.png "Apryse App")
 
-![WebViewer](misc/WebViewer.png "WebViewer")
+![WebViewer](misc/webviewer.png "WebViewer")
 
 The tabs in the Salesforce app registration can be renamed by changing the admin XML file found in `./force-app/main/default/profiles/Admin.profile-meta.xml`. By default the "WebViewer" and "File Browser" tabs are created.
 
