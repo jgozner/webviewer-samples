@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run copy-webviewer && next dev",
+    "build": "npm run copy-webviewer && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "node tools/copy-webviewer-files.js"
+    "copy-webviewer": "mkdir -p ./public/lib/webviewer && cp -a ./node_modules/@pdftron/webviewer/public/* ./public/lib/webviewer"
   },
   "dependencies": {
     "@pdftron/webviewer": "^11.3.0",
@@ -25,7 +25,6 @@
     "download": "^8.0.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.23",
-    "fs-extra": "^11.3.0",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
