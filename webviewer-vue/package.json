@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"start http://localhost:5173\"",
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run copy-webviewer && vite",
+    "build": "npm run copy-webviewer && vite build",
     "serve": "vite preview",
     "lint": "eslint --fix .",
-    "postinstall": "node tools/copy-webviewer-files.js"
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "dependencies": {
     "@pdftron/webviewer": "^11.3.0",

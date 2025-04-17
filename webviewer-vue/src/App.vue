@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <WebViewer
-      initialDoc="https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf"
+      initialDoc="/files/WebviewerDemoDoc.pdf"
     />
   </div>
 </template>
