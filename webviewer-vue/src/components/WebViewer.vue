@@ -12,9 +12,8 @@ export default {
   setup(props) {
     const viewer = ref(null);
     onMounted(() => {
-      const path = `${import.meta.env.BASE_URL}webviewer`;
       WebViewer({ 
-        path, 
+        path: '/lib/webviewer', 
         initialDoc: props.initialDoc, 
         licenseKey: 'your_license_key'  // sign up to get a free trial key at https://dev.apryse.com
       }, viewer.value).then(
