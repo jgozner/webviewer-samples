@@ -15,7 +15,7 @@ export default function Viewer() {
       WebViewer(
         {
           path: '/lib/webviewer',
-          initialDoc: '/files/webviewerdemodoc.pdf',
+          initialDoc: '/files/WebviewerDemoDoc.pdf',
           licenseKey: 'your_license_key'  // sign up to get a free trial key at https://dev.apryse.com
         },
         viewer.current,
@@ -44,15 +44,7 @@ export default function Viewer() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen h-screen">
-      <div className="flex flex-row p-4 bg-apryse-blue justify-between w-full align-middle">
-        <h1 className="text-xl font-bold align-middle">
-          Apryse WebViewer
-        </h1>
-        <button className="bg-white text-black rounded p-1" onClick={() => window.open('https://docs.apryse.com/documentation/web/guides/', '_blank')}>Guides</button>
-      </div>
-      <div className="h-full " ref={viewer}></div>
-    </div>
+    <div className="h-full w-full" ref={viewer}></div>
   );
 }
 

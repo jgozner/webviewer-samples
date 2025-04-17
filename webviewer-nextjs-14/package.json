@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run copy-webviewer && next dev",
+    "build": "npm run copy-webviewer && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "node tools/copy-webviewer-files.js"
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "dependencies": {
     "@pdftron/webviewer": "^11.3.0",
