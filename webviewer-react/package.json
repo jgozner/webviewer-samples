@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "copy-webviewer": "mkdir -p ./public/lib/webviewer && cp -a ./node_modules/@pdftron/webviewer/public/* ./public/lib/webviewer"
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +42,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vitejs/plugin-react": "^4.3.4",
+    "fs-extra": "^11.3.0",
     "jsdom": "^25.0.1",
     "vite": "^6.1.0",
     "vitest": "^2.1.9"
