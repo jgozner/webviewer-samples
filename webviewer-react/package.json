@@ -9,18 +9,17 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/fs-extra": "^11.0.4",
-    "fs-extra": "^11.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
+    "start": "npm run copy-webviewer && vite",
+    "build": "npm run copy-webviewer && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "postinstall": "node tools/copy-webviewer-files.cjs"
+    "copy-webviewer": "mkdir -p ./public/lib/webviewer && cp -a ./node_modules/@pdftron/webviewer/public/* ./public/lib/webviewer"
   },
   "eslintConfig": {
     "extends": [

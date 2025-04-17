@@ -5,12 +5,10 @@ import './App.css';
 const App = () => {
   const viewer = useRef(null);
 
-  // if using a class, equivalent of componentDidMount 
   useEffect(() => {
-    // If you prefer to use the Iframe implementation, you can replace this line with: WebViewer.Iframe(...)
-    WebViewer.WebComponent(
+    WebViewer(
       {
-        path: '/webviewer/lib',
+        path: '/lib/webviewer',
         initialDoc: '/files/PDFTRON_about.pdf',
         licenseKey: 'your_license_key',  // sign up to get a free trial key at https://dev.apryse.com
       },
