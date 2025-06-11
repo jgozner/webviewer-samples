@@ -75,6 +75,5 @@ Samples showing how to use various WebViewer features.
 ### WebViewer Modules
 Samples showing how to use different WebViewer plug-in modules.
 
-- [webviewer-BIM](./webviewer-BIM) - View BIM data in WebViewer
 - [webviewer-audio](./webviewer-audio) - View, annotate, and redact audio files in WebViewer
 - [webviewer-video](./webviewer-video) - View, annotate and redact video files in WebViewer

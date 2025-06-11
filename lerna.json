@@ -10,7 +10,6 @@
       "webviewer-annotations-sqlite3",
       "webviewer-audio",
       "webviewer-barcode",
-      "webviewer-BIM",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
       "webviewer-cors/webviewer-app",
