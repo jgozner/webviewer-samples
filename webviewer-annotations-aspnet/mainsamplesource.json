@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-aspnet/server/webviewer-annotations-asp-net-sample/Scripts/webviewer/index.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-aspnet/server/webviewer-annotations-asp-net-sample/Controllers/AnnotationController.cs",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}
