@@ -1,0 +1,15 @@
+{
+  "githubId": "7edc190e-e49f-4415-8d1f-37f2b36bac5b",
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-sqlite3/client/index.js",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-sqlite3/server/annotationHandler.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}

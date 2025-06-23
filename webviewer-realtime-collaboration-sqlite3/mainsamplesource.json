@@ -1,0 +1,15 @@
+{
+  "githubId": "ad89c537-4157-4e49-8090-049c974959d5",
+  "files": [
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-realtime-collaboration-sqlite3/client/index.js",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-realtime-collaboration-sqlite3/server/annotationHandler.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}

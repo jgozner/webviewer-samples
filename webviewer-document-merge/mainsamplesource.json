@@ -1,0 +1,15 @@
+{
+  "githubId": "551b7a2e-259f-4ee9-b4a4-30c347111b71",
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-document-merge/src/components/Viewer/Viewer.js",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-document-merge/src/Components/Dropzone/Dropzone.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "githubId": "3ffab949-5541-442a-bbe9-edd238468962",
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-document/client/index.js",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-annotations-document/server/annotationHandler.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}

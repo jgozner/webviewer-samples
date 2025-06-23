@@ -1,0 +1,15 @@
+{
+  "githubId": "3ffe1312-3bd4-4315-a42a-6df24fbca5bd",
+  "files": [
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-server-side-search/client/index.js",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-server-side-search/server/api.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}

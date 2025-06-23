@@ -1,0 +1,20 @@
+{
+  "githubId": "24f96e63-3dd9-4cbc-af04-602bbce8d937",
+  "files": [
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-mendix-module/javasource/webviewer/actions/GetFileId.java",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-mendix-module/javasource/webviewer/actions/SaveDocument.java",
+      "description": "",
+      "reason": ""
+    },
+	{
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-mendix-module/javasource/webviewer/actions/UpdateDocument.java",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}
