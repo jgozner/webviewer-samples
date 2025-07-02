@@ -38,6 +38,7 @@
     <members>pdftronWebViewer</members>
     <members>pdftronWebviewerContainer</members>
     <members>pdftronWvFileBrowserComponent</members>
+    <members>pdftronWvInstance</members>
     <members>pubsub</members>
     <name>LightningComponentBundle</name>
   </types>
