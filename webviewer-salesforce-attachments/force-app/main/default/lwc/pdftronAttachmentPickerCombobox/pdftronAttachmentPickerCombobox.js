@@ -6,6 +6,7 @@ import getAttachments from "@salesforce/apex/PDFTron_ContentVersionController.ge
 import getBase64FromCv from "@salesforce/apex/PDFTron_ContentVersionController.getBase64FromCv";
 import apexSearch from "@salesforce/apex/PDFTron_ContentVersionController.search";
 import getFileDataFromId from "@salesforce/apex/PDFTron_ContentVersionController.getFileDataFromId";
+import getFileUrl from "@salesforce/apex/PDFTron_ContentVersionController.getFileUrl";
 
 export default class PdftronAttachmentPickerCombobox extends LightningElement {
   error;
@@ -107,6 +108,28 @@ export default class PdftronAttachmentPickerCombobox extends LightningElement {
 
     this.isLoading = true;
 
+    getFileUrl({ Id: event.detail[0] })
+      .then((result) => {
+        console.log("getFileUrl")
+        console.log(result)
+        this.isLoading = false;
+        fireEvent(this.pageRef, "urlSelected", result);
+      })
+      .catch((error) =>{
+          // TODO: handle error
+          this.error = error;
+          console.error(error);
+          this.isLoading = false;
+          let def_message =
+            "We have encountered an error while handling your file. ";
+
+          this.showNotification(
+            "Error",
+            def_message + error.body.message,
+            "error"
+          );
+      })
+    /*
     getFileDataFromId({ Id: event.detail[0] })
       .then((result) => {
         fireEvent(this.pageRef, "blobSelected", result);
@@ -126,6 +149,7 @@ export default class PdftronAttachmentPickerCombobox extends LightningElement {
           "error"
         );
       });
+      */
   }
 
   //check for errors on selection

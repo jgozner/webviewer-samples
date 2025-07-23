@@ -88,7 +88,7 @@ public with sharing class PDFTron_ContentVersionController {
     @AuraEnabled(Cacheable=true) 
     public static ContentVersionWrapper getFileDataFromId(String Id) {
         try {
-            Long max = 1024 * 1024 * 25; // kb - mb - 6 MB
+            Long max = 1024 * 1024 * 35; // kb - mb - 6 MB
             ContentVersion cv = [SELECT Title, FileExtension, ContentSize, VersionData, ContentDocumentId, LastModifiedDate FROM ContentVersion WHERE Id = :Id];
             if(cv.ContentSize > max) {
                 throw new PDFTronException('Your file size must not exceed ' + convertBytesToFormattedString(max) + ' - current file size: ' + convertBytesToFormattedString(cv.ContentSize));
@@ -97,6 +97,35 @@ public with sharing class PDFTron_ContentVersionController {
         } catch(Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+    }
+
+    @AuraEnabled(cacheable=false)
+    public static String getFileUrl(String Id) {
+        // Check for existing ContentDistribution
+        List<ContentDistribution> distributions = [
+            SELECT DistributionPublicUrl 
+            FROM ContentDistribution 
+            WHERE ContentVersionId = :Id 
+            LIMIT 1
+        ];
+
+        if (!distributions.isEmpty()) {
+            return distributions[0].DistributionPublicUrl;
+        }          
+
+        // If not found, create a new one
+        ContentDistribution cd = new ContentDistribution();
+            cd.Name = Id;
+            cd.ContentVersionId = Id;
+            cd.PreferencesAllowViewInBrowser = true;
+            cd.PreferencesAllowOriginalDownload = true;
+            cd.PreferencesAllowPDFDownload = true;
+            cd.PreferencesNotifyOnVisit = false;
+            cd.PreferencesPasswordRequired = false;
+
+        insert cd;
+
+        return cd.DistributionPublicUrl;
     }
 
     @AuraEnabled

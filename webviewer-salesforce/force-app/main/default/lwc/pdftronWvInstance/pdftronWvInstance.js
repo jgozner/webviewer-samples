@@ -35,6 +35,7 @@ export default class PdftronWvInstance extends LightningElement {
   username;
 
   connectedCallback() {
+    registerListener('urlSelected', this.handleUrlSelected, this);
     registerListener('blobSelected', this.handleBlobSelected, this);
     registerListener('closeDocument', this.closeDocument, this);
     registerListener('downloadDocument', this.downloadDocument, this);
@@ -45,6 +46,12 @@ export default class PdftronWvInstance extends LightningElement {
   disconnectedCallback() {
     unregisterAllListeners(this);
     window.removeEventListener('message', this.handleReceiveMessage);
+  }
+
+  handleUrlSelected(url){
+    console.log("handle url selected called")
+    console.log(url)
+    this.iframeWindow.postMessage({type: 'OPEN_DOCUMENT', file: url}, '*');
   }
 
   handleBlobSelected(record) {
